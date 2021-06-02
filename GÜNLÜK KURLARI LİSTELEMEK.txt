@@ -1,0 +1,24 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+
+driver = webdriver.Chrome(executable_path=r'C:\Users\Hp\Desktop\PYTHON\__pycache__\chromedriver.exe',port=0)
+
+url = "https://www.tcmb.gov.tr/kurlar/kurlar_tr.html"
+driver.get(url)
+time.sleep(3)
+
+tarih = driver.find_element_by_xpath("/html/body/main/section/div[2]/div[2]/div[1]/div/div/div[2]/div/table/tbody/tr[3]/td[5]/a")
+tarih.click()
+
+time.sleep(3)
+
+goster = driver.find_element_by_xpath("/html/body/main/section/div[2]/div[2]/div[1]/div/div/input")
+goster.click()
+
+time.sleep(3)
+
+doviz_cinsi = driver.find_elements_by_class_name("para")
+
+for doviz in doviz_cinsi:
+    print(doviz.text)
