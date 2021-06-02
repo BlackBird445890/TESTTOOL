@@ -1,0 +1,25 @@
+from selenium import webdriver
+import time
+
+driver = webdriver.Chrome(executable_path=r'C:\Users\Hp\Desktop\PYTHON\__pycache__\chromedriver.exe',port=0)
+
+url = "https://github.com/"
+
+driver.get(url)
+driver.save_screenshot("github.png")
+print(driver.title)
+
+time.sleep(3)
+
+driver.maximize_window()
+
+time.sleep(3)
+
+url_selenium = "https://github.com/SeleniumHQ/selenium"
+driver.get(url_selenium)
+driver.save_screenshot("github_selenium.png")
+
+time.sleep(3)
+
+
+driver.close()
